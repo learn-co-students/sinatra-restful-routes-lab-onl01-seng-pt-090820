@@ -36,12 +36,12 @@ class ApplicationController < Sinatra::Base
   #update
   patch '/recipes/:id/edit' do
     @recipe = Recipe.find_by(id: params[:id])
-    if @recipe.name != nil
-    @recipe.update(params[:recipe])
-    redirect "/recipes/#{@recipe.id}"
-    else
-      redirect "recipes/:id/edit"
-    end
+    # if @recipe.name != ""
+      @recipe.update(params[:recipe])
+      redirect '/recipes/#{@recipe.id}'
+    # else
+    #   erb :"/edit"
+    # end
   end
 
   #Delete
